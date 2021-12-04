@@ -1,0 +1,12 @@
+export { AggregateMultimediaArgs } from "./AggregateMultimediaArgs";
+export { CreateManyMultimediaArgs } from "./CreateManyMultimediaArgs";
+export { CreateMultimediaArgs } from "./CreateMultimediaArgs";
+export { DeleteManyMultimediaArgs } from "./DeleteManyMultimediaArgs";
+export { DeleteMultimediaArgs } from "./DeleteMultimediaArgs";
+export { FindFirstMultimediaArgs } from "./FindFirstMultimediaArgs";
+export { FindManyMultimediaArgs } from "./FindManyMultimediaArgs";
+export { FindUniqueMultimediaArgs } from "./FindUniqueMultimediaArgs";
+export { GroupByMultimediaArgs } from "./GroupByMultimediaArgs";
+export { UpdateManyMultimediaArgs } from "./UpdateManyMultimediaArgs";
+export { UpdateMultimediaArgs } from "./UpdateMultimediaArgs";
+export { UpsertMultimediaArgs } from "./UpsertMultimediaArgs";
