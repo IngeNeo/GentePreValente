@@ -1,0 +1,31 @@
+import { GraphQLResolveInfo } from "graphql";
+import { AggregateMultimediaArgs } from "./args/AggregateMultimediaArgs";
+import { CreateManyMultimediaArgs } from "./args/CreateManyMultimediaArgs";
+import { CreateMultimediaArgs } from "./args/CreateMultimediaArgs";
+import { DeleteManyMultimediaArgs } from "./args/DeleteManyMultimediaArgs";
+import { DeleteMultimediaArgs } from "./args/DeleteMultimediaArgs";
+import { FindFirstMultimediaArgs } from "./args/FindFirstMultimediaArgs";
+import { FindManyMultimediaArgs } from "./args/FindManyMultimediaArgs";
+import { FindUniqueMultimediaArgs } from "./args/FindUniqueMultimediaArgs";
+import { GroupByMultimediaArgs } from "./args/GroupByMultimediaArgs";
+import { UpdateManyMultimediaArgs } from "./args/UpdateManyMultimediaArgs";
+import { UpdateMultimediaArgs } from "./args/UpdateMultimediaArgs";
+import { UpsertMultimediaArgs } from "./args/UpsertMultimediaArgs";
+import { Multimedia } from "../../../models/Multimedia";
+import { AffectedRowsOutput } from "../../outputs/AffectedRowsOutput";
+import { AggregateMultimedia } from "../../outputs/AggregateMultimedia";
+import { MultimediaGroupBy } from "../../outputs/MultimediaGroupBy";
+export declare class MultimediaCrudResolver {
+    multimedia(ctx: any, info: GraphQLResolveInfo, args: FindUniqueMultimediaArgs): Promise<Multimedia | null>;
+    findFirstMultimedia(ctx: any, info: GraphQLResolveInfo, args: FindFirstMultimediaArgs): Promise<Multimedia | null>;
+    multimedias(ctx: any, info: GraphQLResolveInfo, args: FindManyMultimediaArgs): Promise<Multimedia[]>;
+    createMultimedia(ctx: any, info: GraphQLResolveInfo, args: CreateMultimediaArgs): Promise<Multimedia>;
+    createManyMultimedia(ctx: any, info: GraphQLResolveInfo, args: CreateManyMultimediaArgs): Promise<AffectedRowsOutput>;
+    deleteMultimedia(ctx: any, info: GraphQLResolveInfo, args: DeleteMultimediaArgs): Promise<Multimedia | null>;
+    updateMultimedia(ctx: any, info: GraphQLResolveInfo, args: UpdateMultimediaArgs): Promise<Multimedia | null>;
+    deleteManyMultimedia(ctx: any, info: GraphQLResolveInfo, args: DeleteManyMultimediaArgs): Promise<AffectedRowsOutput>;
+    updateManyMultimedia(ctx: any, info: GraphQLResolveInfo, args: UpdateManyMultimediaArgs): Promise<AffectedRowsOutput>;
+    upsertMultimedia(ctx: any, info: GraphQLResolveInfo, args: UpsertMultimediaArgs): Promise<Multimedia>;
+    aggregateMultimedia(ctx: any, info: GraphQLResolveInfo, args: AggregateMultimediaArgs): Promise<AggregateMultimedia>;
+    groupByMultimedia(ctx: any, info: GraphQLResolveInfo, args: GroupByMultimediaArgs): Promise<MultimediaGroupBy[]>;
+}
