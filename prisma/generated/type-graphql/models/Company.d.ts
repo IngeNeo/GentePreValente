@@ -4,7 +4,7 @@ export declare class Company {
     id: string;
     name: string;
     businessName: string;
-    nit: string;
+    identificationType: "AT" | "ID" | "NIT";
     identification: string;
     nEmployees: number;
     logo: string;

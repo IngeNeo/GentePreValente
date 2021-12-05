@@ -22,16 +22,22 @@ enum Enum_State {
   Pendiente
 }
 
+enum Enum_IdentificationType {
+  AT
+  ID
+  NIT
+}
+
 model Company {
-  id             String       @id @default(cuid())
-  name           String
-  businessName   String
-  nit            String       @unique
-  identification String
-  nEmployees     Int
-  logo           String
-  state          Enum_State   @default(Pendiente)
-  multimedia     Multimedia[]
+  id                 String                  @id @default(cuid())
+  name               String
+  businessName       String
+  identificationType Enum_IdentificationType @default(NIT)
+  identification     String                  @unique
+  nEmployees         Int
+  logo               String
+  state              Enum_State              @default(Pendiente)
+  multimedia         Multimedia[]
 }
 
 model Multimedia {

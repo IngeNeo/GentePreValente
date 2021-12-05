@@ -1,3 +1,4 @@
+import { EnumEnum_IdentificationTypeWithAggregatesFilter } from "../inputs/EnumEnum_IdentificationTypeWithAggregatesFilter";
 import { EnumEnum_StateWithAggregatesFilter } from "../inputs/EnumEnum_StateWithAggregatesFilter";
 import { IntWithAggregatesFilter } from "../inputs/IntWithAggregatesFilter";
 import { StringWithAggregatesFilter } from "../inputs/StringWithAggregatesFilter";
@@ -8,7 +9,7 @@ export declare class CompanyScalarWhereWithAggregatesInput {
     id?: StringWithAggregatesFilter | undefined;
     name?: StringWithAggregatesFilter | undefined;
     businessName?: StringWithAggregatesFilter | undefined;
-    nit?: StringWithAggregatesFilter | undefined;
+    identificationType?: EnumEnum_IdentificationTypeWithAggregatesFilter | undefined;
     identification?: StringWithAggregatesFilter | undefined;
     nEmployees?: IntWithAggregatesFilter | undefined;
     logo?: StringWithAggregatesFilter | undefined;

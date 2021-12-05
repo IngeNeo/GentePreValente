@@ -2,7 +2,7 @@ export declare enum CompanyScalarFieldEnum {
     id = "id",
     name = "name",
     businessName = "businessName",
-    nit = "nit",
+    identificationType = "identificationType",
     identification = "identification",
     nEmployees = "nEmployees",
     logo = "logo",

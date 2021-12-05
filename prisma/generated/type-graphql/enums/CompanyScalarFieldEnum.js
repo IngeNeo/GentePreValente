@@ -8,7 +8,7 @@ var CompanyScalarFieldEnum;
     CompanyScalarFieldEnum["id"] = "id";
     CompanyScalarFieldEnum["name"] = "name";
     CompanyScalarFieldEnum["businessName"] = "businessName";
-    CompanyScalarFieldEnum["nit"] = "nit";
+    CompanyScalarFieldEnum["identificationType"] = "identificationType";
     CompanyScalarFieldEnum["identification"] = "identification";
     CompanyScalarFieldEnum["nEmployees"] = "nEmployees";
     CompanyScalarFieldEnum["logo"] = "logo";

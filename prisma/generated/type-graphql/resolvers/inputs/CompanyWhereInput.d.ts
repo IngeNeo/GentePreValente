@@ -1,3 +1,4 @@
+import { EnumEnum_IdentificationTypeFilter } from "../inputs/EnumEnum_IdentificationTypeFilter";
 import { EnumEnum_StateFilter } from "../inputs/EnumEnum_StateFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { MultimediaListRelationFilter } from "../inputs/MultimediaListRelationFilter";
@@ -9,7 +10,7 @@ export declare class CompanyWhereInput {
     id?: StringFilter | undefined;
     name?: StringFilter | undefined;
     businessName?: StringFilter | undefined;
-    nit?: StringFilter | undefined;
+    identificationType?: EnumEnum_IdentificationTypeFilter | undefined;
     identification?: StringFilter | undefined;
     nEmployees?: IntFilter | undefined;
     logo?: StringFilter | undefined;

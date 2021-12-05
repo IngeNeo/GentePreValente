@@ -29,7 +29,7 @@ let CompanyMaxOrderByAggregateInput = class CompanyMaxOrderByAggregateInput {
         nullable: true
     }),
     (0, tslib_1.__metadata)("design:type", String)
-], CompanyMaxOrderByAggregateInput.prototype, "nit", void 0);
+], CompanyMaxOrderByAggregateInput.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => SortOrder_1.SortOrder, {
         nullable: true

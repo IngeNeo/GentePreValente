@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyWhereInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = (0, tslib_1.__importStar)(require("type-graphql"));
+const EnumEnum_IdentificationTypeFilter_1 = require("../inputs/EnumEnum_IdentificationTypeFilter");
 const EnumEnum_StateFilter_1 = require("../inputs/EnumEnum_StateFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
 const MultimediaListRelationFilter_1 = require("../inputs/MultimediaListRelationFilter");
@@ -47,11 +48,11 @@ let CompanyWhereInput = CompanyWhereInput_1 = class CompanyWhereInput {
     (0, tslib_1.__metadata)("design:type", StringFilter_1.StringFilter)
 ], CompanyWhereInput.prototype, "businessName", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
+    TypeGraphQL.Field(_type => EnumEnum_IdentificationTypeFilter_1.EnumEnum_IdentificationTypeFilter, {
         nullable: true
     }),
-    (0, tslib_1.__metadata)("design:type", StringFilter_1.StringFilter)
-], CompanyWhereInput.prototype, "nit", void 0);
+    (0, tslib_1.__metadata)("design:type", EnumEnum_IdentificationTypeFilter_1.EnumEnum_IdentificationTypeFilter)
+], CompanyWhereInput.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
         nullable: true

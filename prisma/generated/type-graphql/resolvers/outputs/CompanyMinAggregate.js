@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyMinAggregate = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = (0, tslib_1.__importStar)(require("type-graphql"));
+const Enum_IdentificationType_1 = require("../../enums/Enum_IdentificationType");
 const Enum_State_1 = require("../../enums/Enum_State");
 let CompanyMinAggregate = class CompanyMinAggregate {
 };
@@ -25,11 +26,11 @@ let CompanyMinAggregate = class CompanyMinAggregate {
     (0, tslib_1.__metadata)("design:type", String)
 ], CompanyMinAggregate.prototype, "businessName", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => String, {
+    TypeGraphQL.Field(_type => Enum_IdentificationType_1.Enum_IdentificationType, {
         nullable: true
     }),
     (0, tslib_1.__metadata)("design:type", String)
-], CompanyMinAggregate.prototype, "nit", void 0);
+], CompanyMinAggregate.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => String, {
         nullable: true

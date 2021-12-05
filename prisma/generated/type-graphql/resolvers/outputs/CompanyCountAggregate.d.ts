@@ -2,7 +2,7 @@ export declare class CompanyCountAggregate {
     id: number;
     name: number;
     businessName: number;
-    nit: number;
+    identificationType: number;
     identification: number;
     nEmployees: number;
     logo: number;

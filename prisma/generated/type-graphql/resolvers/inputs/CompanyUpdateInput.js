@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyUpdateInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = (0, tslib_1.__importStar)(require("type-graphql"));
+const EnumEnum_IdentificationTypeFieldUpdateOperationsInput_1 = require("../inputs/EnumEnum_IdentificationTypeFieldUpdateOperationsInput");
 const EnumEnum_StateFieldUpdateOperationsInput_1 = require("../inputs/EnumEnum_StateFieldUpdateOperationsInput");
 const IntFieldUpdateOperationsInput_1 = require("../inputs/IntFieldUpdateOperationsInput");
 const MultimediaUpdateManyWithoutCompanyInput_1 = require("../inputs/MultimediaUpdateManyWithoutCompanyInput");
@@ -28,11 +29,11 @@ let CompanyUpdateInput = class CompanyUpdateInput {
     (0, tslib_1.__metadata)("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
 ], CompanyUpdateInput.prototype, "businessName", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
+    TypeGraphQL.Field(_type => EnumEnum_IdentificationTypeFieldUpdateOperationsInput_1.EnumEnum_IdentificationTypeFieldUpdateOperationsInput, {
         nullable: true
     }),
-    (0, tslib_1.__metadata)("design:type", StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput)
-], CompanyUpdateInput.prototype, "nit", void 0);
+    (0, tslib_1.__metadata)("design:type", EnumEnum_IdentificationTypeFieldUpdateOperationsInput_1.EnumEnum_IdentificationTypeFieldUpdateOperationsInput)
+], CompanyUpdateInput.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput_1.StringFieldUpdateOperationsInput, {
         nullable: true

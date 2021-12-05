@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyScalarWhereWithAggregatesInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = (0, tslib_1.__importStar)(require("type-graphql"));
+const EnumEnum_IdentificationTypeWithAggregatesFilter_1 = require("../inputs/EnumEnum_IdentificationTypeWithAggregatesFilter");
 const EnumEnum_StateWithAggregatesFilter_1 = require("../inputs/EnumEnum_StateWithAggregatesFilter");
 const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
@@ -46,11 +47,11 @@ let CompanyScalarWhereWithAggregatesInput = CompanyScalarWhereWithAggregatesInpu
     (0, tslib_1.__metadata)("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
 ], CompanyScalarWhereWithAggregatesInput.prototype, "businessName", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => EnumEnum_IdentificationTypeWithAggregatesFilter_1.EnumEnum_IdentificationTypeWithAggregatesFilter, {
         nullable: true
     }),
-    (0, tslib_1.__metadata)("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
-], CompanyScalarWhereWithAggregatesInput.prototype, "nit", void 0);
+    (0, tslib_1.__metadata)("design:type", EnumEnum_IdentificationTypeWithAggregatesFilter_1.EnumEnum_IdentificationTypeWithAggregatesFilter)
+], CompanyScalarWhereWithAggregatesInput.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
         nullable: true

@@ -16,7 +16,7 @@ let CompanyWhereUniqueInput = class CompanyWhereUniqueInput {
         nullable: true
     }),
     (0, tslib_1.__metadata)("design:type", String)
-], CompanyWhereUniqueInput.prototype, "nit", void 0);
+], CompanyWhereUniqueInput.prototype, "identification", void 0);
 CompanyWhereUniqueInput = (0, tslib_1.__decorate)([
     TypeGraphQL.InputType("CompanyWhereUniqueInput", {
         isAbstract: true

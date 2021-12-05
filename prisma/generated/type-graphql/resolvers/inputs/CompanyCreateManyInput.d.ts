@@ -2,7 +2,7 @@ export declare class CompanyCreateManyInput {
     id?: string | undefined;
     name: string;
     businessName: string;
-    nit: string;
+    identificationType?: "AT" | "ID" | "NIT" | undefined;
     identification: string;
     nEmployees: number;
     logo: string;

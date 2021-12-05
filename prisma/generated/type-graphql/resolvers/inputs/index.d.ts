@@ -19,6 +19,9 @@ export { CompanyUpdateWithoutMultimediaInput } from "./CompanyUpdateWithoutMulti
 export { CompanyUpsertWithoutMultimediaInput } from "./CompanyUpsertWithoutMultimediaInput";
 export { CompanyWhereInput } from "./CompanyWhereInput";
 export { CompanyWhereUniqueInput } from "./CompanyWhereUniqueInput";
+export { EnumEnum_IdentificationTypeFieldUpdateOperationsInput } from "./EnumEnum_IdentificationTypeFieldUpdateOperationsInput";
+export { EnumEnum_IdentificationTypeFilter } from "./EnumEnum_IdentificationTypeFilter";
+export { EnumEnum_IdentificationTypeWithAggregatesFilter } from "./EnumEnum_IdentificationTypeWithAggregatesFilter";
 export { EnumEnum_StateFieldUpdateOperationsInput } from "./EnumEnum_StateFieldUpdateOperationsInput";
 export { EnumEnum_StateFilter } from "./EnumEnum_StateFilter";
 export { EnumEnum_StateWithAggregatesFilter } from "./EnumEnum_StateWithAggregatesFilter";
@@ -50,6 +53,8 @@ export { MultimediaUpdateWithoutCompanyInput } from "./MultimediaUpdateWithoutCo
 export { MultimediaUpsertWithWhereUniqueWithoutCompanyInput } from "./MultimediaUpsertWithWhereUniqueWithoutCompanyInput";
 export { MultimediaWhereInput } from "./MultimediaWhereInput";
 export { MultimediaWhereUniqueInput } from "./MultimediaWhereUniqueInput";
+export { NestedEnumEnum_IdentificationTypeFilter } from "./NestedEnumEnum_IdentificationTypeFilter";
+export { NestedEnumEnum_IdentificationTypeWithAggregatesFilter } from "./NestedEnumEnum_IdentificationTypeWithAggregatesFilter";
 export { NestedEnumEnum_StateFilter } from "./NestedEnumEnum_StateFilter";
 export { NestedEnumEnum_StateWithAggregatesFilter } from "./NestedEnumEnum_StateWithAggregatesFilter";
 export { NestedFloatFilter } from "./NestedFloatFilter";
