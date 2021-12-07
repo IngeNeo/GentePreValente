@@ -16,31 +16,31 @@ const Header = () => {
 					<span className='font-bold text-white'>Gente PreValente</span>
 				</li>
 				<li>
-					<i className='text-white fas fa-search'></i>
+					<i aria-hidden={true} className='text-white fas fa-search'></i>
 					<div className='buscar'>
 						<input className='buscar-input' placeholder='Buscar...' />
 					</div>
 				</li>
 				<li>
 					<Link href='#'>
-						<a><i aria-hidden className="text-white fas fa-cogs"> Administración</i></a>
+						<a><i aria-hidden={true} className="text-white fas fa-cogs"> Administración</i></a>
 					</Link>
 				</li>
 				<li>
 					<Link href='#'>
-						<a><i aria-hidden className="text-white fas fa-suitcase"> Empleo</i>
-						<i aria-hidden className="px-1 text-white fas fa-chevron-down"></i></a>
+						<a><i aria-hidden={true} className="text-white fas fa-suitcase"> Empleo</i>
+							<i aria-hidden={true} className="px-1 text-white fas fa-chevron-down"></i></a>
 					</Link>
 				</li>
 				<li>
 					<Link href='#'>
-						<a><i aria-hidden className="text-white fas fa-clipboard-list"> Mi CV</i></a>
+						<a><i aria-hidden={true} className="text-white fas fa-clipboard-list"> Mi CV</i></a>
 					</Link>
 				</li>
 				<li>
 					<Link href='#'>
-						<a><i aria-hidden className='text-white fas fa-user-circle'> Perfil  </i>
-							<i aria-hidden className="px-1 text-white fas fa-chevron-down"></i></a>
+						<a><i aria-hidden={true} className='text-white fas fa-user-circle'> Perfil  </i>
+							<i aria-hidden={true} className="px-1 text-white fas fa-chevron-down"></i></a>
 					</Link>
 				</li>
 			</ul>
