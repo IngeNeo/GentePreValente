@@ -1,0 +1,1 @@
+export { CompanyMultimediaArgs } from "./CompanyMultimediaArgs";
