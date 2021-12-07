@@ -4,6 +4,7 @@ exports.CompanyCreateInput = void 0;
 const tslib_1 = require("tslib");
 const TypeGraphQL = (0, tslib_1.__importStar)(require("type-graphql"));
 const MultimediaCreateNestedManyWithoutCompanyInput_1 = require("../inputs/MultimediaCreateNestedManyWithoutCompanyInput");
+const Enum_IdentificationType_1 = require("../../enums/Enum_IdentificationType");
 const Enum_State_1 = require("../../enums/Enum_State");
 let CompanyCreateInput = class CompanyCreateInput {
 };
@@ -26,11 +27,11 @@ let CompanyCreateInput = class CompanyCreateInput {
     (0, tslib_1.__metadata)("design:type", String)
 ], CompanyCreateInput.prototype, "businessName", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => String, {
-        nullable: false
+    TypeGraphQL.Field(_type => Enum_IdentificationType_1.Enum_IdentificationType, {
+        nullable: true
     }),
     (0, tslib_1.__metadata)("design:type", String)
-], CompanyCreateInput.prototype, "nit", void 0);
+], CompanyCreateInput.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => String, {
         nullable: false
@@ -45,7 +46,7 @@ let CompanyCreateInput = class CompanyCreateInput {
 ], CompanyCreateInput.prototype, "nEmployees", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => String, {
-        nullable: false
+        nullable: true
     }),
     (0, tslib_1.__metadata)("design:type", String)
 ], CompanyCreateInput.prototype, "logo", void 0);

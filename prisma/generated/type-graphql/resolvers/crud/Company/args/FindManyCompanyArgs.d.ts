@@ -7,5 +7,5 @@ export declare class FindManyCompanyArgs {
     cursor?: CompanyWhereUniqueInput | undefined;
     take?: number | undefined;
     skip?: number | undefined;
-    distinct?: Array<"id" | "name" | "businessName" | "nit" | "identification" | "nEmployees" | "logo" | "state"> | undefined;
+    distinct?: Array<"id" | "name" | "businessName" | "identificationType" | "identification" | "nEmployees" | "logo" | "state"> | undefined;
 }

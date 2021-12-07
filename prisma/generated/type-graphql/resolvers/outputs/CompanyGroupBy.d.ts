@@ -7,10 +7,10 @@ export declare class CompanyGroupBy {
     id: string;
     name: string;
     businessName: string;
-    nit: string;
+    identificationType: "AT" | "ID" | "NIT";
     identification: string;
     nEmployees: number;
-    logo: string;
+    logo: string | null;
     state: "Aprobado" | "Rechazado" | "Pendiente";
     _count: CompanyCountAggregate | null;
     _avg: CompanyAvgAggregate | null;

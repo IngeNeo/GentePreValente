@@ -1,8 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SortOrder = exports.QueryMode = exports.MultimediaScalarFieldEnum = exports.Enum_State = exports.CompanyScalarFieldEnum = void 0;
+exports.SortOrder = exports.QueryMode = exports.MultimediaScalarFieldEnum = exports.Enum_State = exports.Enum_IdentificationType = exports.CompanyScalarFieldEnum = void 0;
 var CompanyScalarFieldEnum_1 = require("./CompanyScalarFieldEnum");
 Object.defineProperty(exports, "CompanyScalarFieldEnum", { enumerable: true, get: function () { return CompanyScalarFieldEnum_1.CompanyScalarFieldEnum; } });
+var Enum_IdentificationType_1 = require("./Enum_IdentificationType");
+Object.defineProperty(exports, "Enum_IdentificationType", { enumerable: true, get: function () { return Enum_IdentificationType_1.Enum_IdentificationType; } });
 var Enum_State_1 = require("./Enum_State");
 Object.defineProperty(exports, "Enum_State", { enumerable: true, get: function () { return Enum_State_1.Enum_State; } });
 var MultimediaScalarFieldEnum_1 = require("./MultimediaScalarFieldEnum");

@@ -8,6 +8,7 @@ const CompanyCountAggregate_1 = require("../outputs/CompanyCountAggregate");
 const CompanyMaxAggregate_1 = require("../outputs/CompanyMaxAggregate");
 const CompanyMinAggregate_1 = require("../outputs/CompanyMinAggregate");
 const CompanySumAggregate_1 = require("../outputs/CompanySumAggregate");
+const Enum_IdentificationType_1 = require("../../enums/Enum_IdentificationType");
 const Enum_State_1 = require("../../enums/Enum_State");
 let CompanyGroupBy = class CompanyGroupBy {
 };
@@ -30,11 +31,11 @@ let CompanyGroupBy = class CompanyGroupBy {
     (0, tslib_1.__metadata)("design:type", String)
 ], CompanyGroupBy.prototype, "businessName", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => String, {
+    TypeGraphQL.Field(_type => Enum_IdentificationType_1.Enum_IdentificationType, {
         nullable: false
     }),
     (0, tslib_1.__metadata)("design:type", String)
-], CompanyGroupBy.prototype, "nit", void 0);
+], CompanyGroupBy.prototype, "identificationType", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => String, {
         nullable: false
@@ -49,7 +50,7 @@ let CompanyGroupBy = class CompanyGroupBy {
 ], CompanyGroupBy.prototype, "nEmployees", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => String, {
-        nullable: false
+        nullable: true
     }),
     (0, tslib_1.__metadata)("design:type", String)
 ], CompanyGroupBy.prototype, "logo", void 0);

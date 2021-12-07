@@ -1,15 +1,18 @@
 -- CreateEnum
 CREATE TYPE "Enum_State" AS ENUM ('Aprobado', 'Rechazado', 'Pendiente');
 
+-- CreateEnum
+CREATE TYPE "Enum_IdentificationType" AS ENUM ('AT', 'ID', 'NIT');
+
 -- CreateTable
 CREATE TABLE "Company" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "businessName" TEXT NOT NULL,
-    "nit" TEXT NOT NULL,
+    "identificationType" "Enum_IdentificationType" NOT NULL DEFAULT E'NIT',
     "identification" TEXT NOT NULL,
     "nEmployees" INTEGER NOT NULL,
-    "logo" TEXT NOT NULL,
+    "logo" TEXT,
     "state" "Enum_State" NOT NULL DEFAULT E'Pendiente',
 
     CONSTRAINT "Company_pkey" PRIMARY KEY ("id")
@@ -26,7 +29,7 @@ CREATE TABLE "Multimedia" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Company_nit_key" ON "Company"("nit");
+CREATE UNIQUE INDEX "Company_identification_key" ON "Company"("identification");
 
 -- AddForeignKey
 ALTER TABLE "Multimedia" ADD CONSTRAINT "Multimedia_companyId_fkey" FOREIGN KEY ("companyId") REFERENCES "Company"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
