@@ -5,6 +5,6 @@ export declare class CompanyCreateManyInput {
     identificationType?: "AT" | "ID" | "NIT" | undefined;
     identification: string;
     nEmployees: number;
-    logo: string;
+    logo?: string | undefined;
     state?: "Aprobado" | "Rechazado" | "Pendiente" | undefined;
 }

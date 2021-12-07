@@ -9,6 +9,7 @@ const EnumEnum_StateFilter_1 = require("../inputs/EnumEnum_StateFilter");
 const IntFilter_1 = require("../inputs/IntFilter");
 const MultimediaListRelationFilter_1 = require("../inputs/MultimediaListRelationFilter");
 const StringFilter_1 = require("../inputs/StringFilter");
+const StringNullableFilter_1 = require("../inputs/StringNullableFilter");
 let CompanyWhereInput = CompanyWhereInput_1 = class CompanyWhereInput {
 };
 (0, tslib_1.__decorate)([
@@ -66,10 +67,10 @@ let CompanyWhereInput = CompanyWhereInput_1 = class CompanyWhereInput {
     (0, tslib_1.__metadata)("design:type", IntFilter_1.IntFilter)
 ], CompanyWhereInput.prototype, "nEmployees", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => StringFilter_1.StringFilter, {
+    TypeGraphQL.Field(_type => StringNullableFilter_1.StringNullableFilter, {
         nullable: true
     }),
-    (0, tslib_1.__metadata)("design:type", StringFilter_1.StringFilter)
+    (0, tslib_1.__metadata)("design:type", StringNullableFilter_1.StringNullableFilter)
 ], CompanyWhereInput.prototype, "logo", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => EnumEnum_StateFilter_1.EnumEnum_StateFilter, {

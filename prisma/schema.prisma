@@ -35,7 +35,7 @@ model Company {
   identificationType Enum_IdentificationType @default(NIT)
   identification     String                  @unique
   nEmployees         Int
-  logo               String
+  logo               String?
   state              Enum_State              @default(Pendiente)
   multimedia         Multimedia[]
 }

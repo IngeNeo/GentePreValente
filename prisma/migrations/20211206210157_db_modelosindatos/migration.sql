@@ -12,7 +12,7 @@ CREATE TABLE "Company" (
     "identificationType" "Enum_IdentificationType" NOT NULL DEFAULT E'NIT',
     "identification" TEXT NOT NULL,
     "nEmployees" INTEGER NOT NULL,
-    "logo" TEXT NOT NULL,
+    "logo" TEXT,
     "state" "Enum_State" NOT NULL DEFAULT E'Pendiente',
 
     CONSTRAINT "Company_pkey" PRIMARY KEY ("id")

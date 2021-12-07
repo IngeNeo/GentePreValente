@@ -7,6 +7,7 @@ const TypeGraphQL = (0, tslib_1.__importStar)(require("type-graphql"));
 const EnumEnum_IdentificationTypeWithAggregatesFilter_1 = require("../inputs/EnumEnum_IdentificationTypeWithAggregatesFilter");
 const EnumEnum_StateWithAggregatesFilter_1 = require("../inputs/EnumEnum_StateWithAggregatesFilter");
 const IntWithAggregatesFilter_1 = require("../inputs/IntWithAggregatesFilter");
+const StringNullableWithAggregatesFilter_1 = require("../inputs/StringNullableWithAggregatesFilter");
 const StringWithAggregatesFilter_1 = require("../inputs/StringWithAggregatesFilter");
 let CompanyScalarWhereWithAggregatesInput = CompanyScalarWhereWithAggregatesInput_1 = class CompanyScalarWhereWithAggregatesInput {
 };
@@ -65,10 +66,10 @@ let CompanyScalarWhereWithAggregatesInput = CompanyScalarWhereWithAggregatesInpu
     (0, tslib_1.__metadata)("design:type", IntWithAggregatesFilter_1.IntWithAggregatesFilter)
 ], CompanyScalarWhereWithAggregatesInput.prototype, "nEmployees", void 0);
 (0, tslib_1.__decorate)([
-    TypeGraphQL.Field(_type => StringWithAggregatesFilter_1.StringWithAggregatesFilter, {
+    TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter, {
         nullable: true
     }),
-    (0, tslib_1.__metadata)("design:type", StringWithAggregatesFilter_1.StringWithAggregatesFilter)
+    (0, tslib_1.__metadata)("design:type", StringNullableWithAggregatesFilter_1.StringNullableWithAggregatesFilter)
 ], CompanyScalarWhereWithAggregatesInput.prototype, "logo", void 0);
 (0, tslib_1.__decorate)([
     TypeGraphQL.Field(_type => EnumEnum_StateWithAggregatesFilter_1.EnumEnum_StateWithAggregatesFilter, {

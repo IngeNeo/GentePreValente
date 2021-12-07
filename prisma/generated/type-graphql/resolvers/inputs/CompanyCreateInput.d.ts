@@ -6,7 +6,7 @@ export declare class CompanyCreateInput {
     identificationType?: "AT" | "ID" | "NIT" | undefined;
     identification: string;
     nEmployees: number;
-    logo: string;
+    logo?: string | undefined;
     state?: "Aprobado" | "Rechazado" | "Pendiente" | undefined;
     multimedia?: MultimediaCreateNestedManyWithoutCompanyInput | undefined;
 }

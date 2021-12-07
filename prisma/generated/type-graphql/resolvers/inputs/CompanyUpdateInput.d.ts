@@ -2,6 +2,7 @@ import { EnumEnum_IdentificationTypeFieldUpdateOperationsInput } from "../inputs
 import { EnumEnum_StateFieldUpdateOperationsInput } from "../inputs/EnumEnum_StateFieldUpdateOperationsInput";
 import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
 import { MultimediaUpdateManyWithoutCompanyInput } from "../inputs/MultimediaUpdateManyWithoutCompanyInput";
+import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 export declare class CompanyUpdateInput {
     id?: StringFieldUpdateOperationsInput | undefined;
@@ -10,7 +11,7 @@ export declare class CompanyUpdateInput {
     identificationType?: EnumEnum_IdentificationTypeFieldUpdateOperationsInput | undefined;
     identification?: StringFieldUpdateOperationsInput | undefined;
     nEmployees?: IntFieldUpdateOperationsInput | undefined;
-    logo?: StringFieldUpdateOperationsInput | undefined;
+    logo?: NullableStringFieldUpdateOperationsInput | undefined;
     state?: EnumEnum_StateFieldUpdateOperationsInput | undefined;
     multimedia?: MultimediaUpdateManyWithoutCompanyInput | undefined;
 }
