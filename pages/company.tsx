@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Image from 'next/image'
 import Head from 'next/head'
 import PRE from '../media/logos/Prevalentware_Logo.png'
 import { PrismaClient } from '.prisma/client';
+import { useMutation, useQuery } from '@apollo/client';
+import { GET_COMPANYS } from 'graphql/company/queries';
+import { APROBAR_EMPRESA } from 'graphql/company/mutations';
+import { toast } from 'react-toastify';
 
 //const prisma = new PrismaClient();
 
@@ -25,7 +29,12 @@ export async function getServerSideProps() {
 	};
 }
 
+const submitForm = (e) => {
+		e.preventDefault();
+	};
+
 const company = ({ company }) => {
+
 	console.log('Esta es la variable en el front', company);
 	return (
 		<div className='mainContainer'>
@@ -41,7 +50,7 @@ const company = ({ company }) => {
 					company && company.map((c) => {
 						return (
 							<div key={c.id} className="flex flex-col items-center min-h-screen px-4 py-2 sm:px-6 lg:px-8">
-								<form className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
+								<form onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 									<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 										<div></div>
 										<div>
@@ -53,7 +62,7 @@ const company = ({ company }) => {
 											/>
 										</div>
 										<div className="flex flex-col py-2">
-											<button type='submit' className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+											<button className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
 												<i aria-hidden={true} className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Aprobar Empresa
 											</button>
 											<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
@@ -104,4 +113,29 @@ const company = ({ company }) => {
 	)
 }
 
-export default company
+const Empresa = ({ company, refetch }) => {
+	const [aprobarEmpresa, { data, loading, error }] = useMutation(APROBAR_EMPRESA);
+
+	useEffect(() => {
+		if (data) {
+			toast.success('Empresa aprobada con exito');
+			refetch();
+		}
+	}, [data, refetch]);
+
+	useEffect(() => {
+		if (error) {
+			toast.error('Error aprobando la empresa');
+		}
+	}, [error]);
+
+	const cambiarEstadoEmpresa = () => {
+		aprobarEmpresa({
+			variables: {
+				aprobarEmpresa: company._id,
+			},
+		});
+	};
+}
+
+export default company;
