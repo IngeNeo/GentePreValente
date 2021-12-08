@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header'
-import Footer from '../components/Footer'
 import Image from 'next/image'
 import Head from 'next/head'
 import PRE from '../media/logos/Prevalentware_Logo.png'
@@ -37,12 +36,12 @@ const company = ({ company }) => {
 
 	console.log('Esta es la variable en el front', company);
 	return (
-		<div className='mainContainer'>
+		<div className='sm:block md:overflow-y-hidden mainContainer'>
 			<Head>
 				<title> Aprobar Empresas | Gente Prevalente </title>
 			</Head>
 			<Header />
-			<main className='flex flex-col h-full overflow-y-hidden'>
+			<main className='flex flex-col h-full'>
 				<div className='py-10 mx-10'>
 					<span className='text-lg font-bold text-blue-400'> Administración </span><span className='text-black'> / Aprobación de Empresas</span>
 				</div>
@@ -108,7 +107,6 @@ const company = ({ company }) => {
 					)
 				};
 			</main>
-			<Footer />
 		</div>
 	)
 }

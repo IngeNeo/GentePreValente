@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
 body {
 	margin: 0px;
+	background-color:#E5E7EB;
+	font-family: 'Roboto', sans-serif;
 }
 
 ul {
@@ -10,20 +12,12 @@ ul {
 }
 
 .mainContainer {
-  display: flex;
-  flex-direction: column;
   height: 100vh;
-  overflow-y: hidden;
-	background-color:#E5E7EB
+	background-color:#E5E7EB;
 }
 
 .navbar {
-	display: flex;
-	justify-content: space-between;
 	background-color: rgb(47, 51, 55);
-	border-bottom: 1px solid gray;
-	box-shadow: 1px 1px gray;
-	font-family: 'Roboto', sans-serif;
 }
 
 .navbar > li {
@@ -33,10 +27,7 @@ ul {
 
 .buscar {
 	background-color: rgb(47, 51, 55);
-	padding: 4px;
 	width: 200px;
-	display: flex;
-	justify-content: space-between;
 }
 
 .buscar-input {
@@ -49,41 +40,9 @@ ul {
 	border: 0px;
 }
 
-.card1{
+.card{
 	width: 552px;
 	height: 300px;
-	left: 140px;
-	top: 180px;
-	background: #FFFFFF;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 16px;
-}
-
-.card2{
-	width: 554px;
-	height: 300px;
-	left: 749px;
-	top: 180px;
-	background: #FFFFFF;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 16px;
-}
-
-.card3{
-	width: 550px;
-	height: 300px;
-	left: 141px;
-	top: 584px;
-	background: #FFFFFF;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 16px;
-}
-
-.card4{
-	width: 556px;
-	height: 300px;
-	left: 748px;
-	top: 584px;
 	background: #FFFFFF;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	border-radius: 16px;
