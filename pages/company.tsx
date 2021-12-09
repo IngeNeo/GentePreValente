@@ -31,10 +31,6 @@ export async function getServerSideProps() {
 	};
 }
 
-const submitForm = (e) => {
-		e.preventDefault();
-	};
-
 const Company = ({ empresa }) => {
 
 	/* const { loading, error, data} = useQuery(GET_COMPANYS);
@@ -81,68 +77,44 @@ const Company = ({ empresa }) => {
 
 const Form = (empresa)=>{
 
-	const [aprobarEmpresa, { data: mutationData, loading: mutationLoading, error: mutationError }] =
-		useMutation(APROBAR_EMPRESA);
-
-	const forma = useRef(null);
-
-	const aprobar = (id) => {
-		console.log("Se ingreso a aprobar empresa");
-		aprobarEmpresa({
-			variables: {
-				"data":
-				{
-					"state": "Aprobado"
-				},
-				"where": {
-					"id": id
-				}
-			},
-		});
-	}
-
-	const rechazar = (id) => {
-		console.log("Se ingreso a rechazar empresa");
-		aprobarEmpresa({
-			variables: {
-				"data":
-				{
-					"state": "Rechazado"
-				},
-				"where": {
-					"id": id
-				}
-			},
-		});
-	}
-
-	const envinf = async (e) => {
+	const submitForm = (e) => {
 		e.preventDefault();
 	}
 
-	useEffect(() => {
-		if (mutationData) {
-			toast.success('Empresa aprobada correctamente');
-		}
-	}, [mutationData]);
+	const [aprobarEmpresa, { data, loading, error }] = useMutation(APROBAR_EMPRESA);
 
 	useEffect(() => {
-		if (mutationError) {
+		if (data) {
+			toast.success('Empresa aprobada con exito');
+		}
+	}, [data]);
+
+	useEffect(() => {
+		if (error) {
 			toast.error('Error aprobando la empresa');
 		}
-	}, [mutationError]);
+	}, [error]);
 
+	const cambiarEstadoEmpresa= () => {
+		aprobarEmpresa({
+			variables: {
+				data: {
+					state: "Aprobado"
+				},
+				where: {
+					id: empresa.empresa.id
+				}
+			},
+		});
+	};
 
-		const myLoader = ({ src, width, quality }) => {
+	const myLoader = ({ src, width, quality }) => {
 		return `https://drive.google.com/file/d/${src}?w=${width}&q=${quality || 75}`
 	}
 
 	console.log("Datos empresa", empresa)
 	return (
-		<form
-			ref={forma}
-			onSubmit={envinf}
-		className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
+		<form onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 			<div className="grid grid-cols-3 gap-5 text-center rounded-md">
 				<div></div>
 				<div>
@@ -156,10 +128,12 @@ const Form = (empresa)=>{
 					/>
 				</div>
 				<div className="flex flex-col invisible py-2 md:visible">
-					<button onClick={() => aprobar(empresa.empresa.id)} className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+					<button onClick={() => {
+						cambiarEstadoEmpresa();
+					}} className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
 						<i aria-hidden={true} className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Aprobar Empresa
 					</button>
-					<button onClick={() => rechazar(empresa.empresa.id)} type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+					<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
 						<i aria-hidden={true} className="text-2xl text-red-500 align-middle fas fa-times-circle"></i> Rechazar Empresa
 					</button>
 				</div>

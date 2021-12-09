@@ -4,7 +4,8 @@ import type { AppProps } from 'next/app'
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client';
 
 const client = new ApolloClient({
-	uri: 'http://localhost:3000/api/graphql',
+	//uri: 'http://localhost:3000/api/graphql',
+	uri: 'https://gente-prevalente-bsbc2iixq-ingeneo.vercel.app/api/graphql',
 	cache: new InMemoryCache(),
 });
 
