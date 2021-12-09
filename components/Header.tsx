@@ -53,7 +53,6 @@ const Header = () => {
 					<div className='justify-between p-1 md:hidden sm:flex'>
 						<Link href='#'>
 							<a><i aria-hidden={true} className='px-5 text-2xl text-white fas fa-bars'></i></a>
-
 						</Link>
 					</div>
 				</li>

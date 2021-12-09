@@ -10,6 +10,7 @@ import { APROBAR_EMPRESA } from '../graphql/company/mutations';
 import { toast } from 'react-toastify';
 import ReactLoading from 'react-loading';
 import Link from 'next/link';
+import { useRef } from 'react';
 
 //const prisma = new PrismaClient();
 
@@ -22,7 +23,7 @@ export async function getServerSideProps() {
 		identificationType: "NIT",
 		identification: "901375150-4",
 		nEmployees: 10,
-		logo: PRE,
+		logo: '1r6BWC_PPDzNlF_mDDSMGZNsv5MBDtbw3',
 		state: "Pendiente"
 	}];
 	return {
@@ -59,82 +60,150 @@ const Company = ({ empresa }) => {
 			<main className='flex flex-col h-full'>
 				<div className='py-10 mx-10'>
 					<span className='text-lg font-bold text-blue-400'>
-						<Link href='/'> Administración </Link></span>
-					<span className='text-black'> / Aprobación de Empresas</span>
+						<Link href='/'> Administración </Link>
+					</span>
+					<span className='text-black'> / Aprobación de Empresas </span>
 				</div>
 				{
 					empresa && empresa.map((c) => {
 						return (
 							<div key={c.id} className="flex flex-col items-center min-h-screen px-4 py-2 sm:px-6 lg:px-8">
-								<form onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
-									<div className="grid grid-cols-3 gap-5 text-center rounded-md">
-										<div></div>
-										<div>
-											<Image
-												src={PRE}
-												alt={c.name}
-												width={150}
-												height={150}
-											/>
-										</div>
-										<div className="flex flex-col invisible py-2 md:visible">
-											<button className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
-												<i aria-hidden={true} className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Aprobar Empresa
-											</button>
-											<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
-												<i aria-hidden={true} className="text-2xl text-red-500 align-middle fas fa-times-circle"></i> Rechazar Empresa
-											</button>
-										</div>
-									</div>
-									<div className="flex flex-col gap-5 rounded-md md:grid md:grid-cols-2">
-										<label className='text-gray-500' htmlFor="name"> Nombre de la empresa
-											<input name="name" type="text" required={true} defaultValue={c.name}
-												className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
-										</label>
-										<label className='text-gray-500' htmlFor="businessName"> Razón Social
-											<input name="businessName" type="text" required={true} defaultValue={c.businessName}
-												className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm"/>
-										</label>
-									</div>
-									<div className="flex flex-col gap-5 rounded-md md:grid md:grid-cols-2">
-										<label className='text-gray-500' htmlFor="identificationType"> Tipo de identificación
-											<input name="identificationType" type="text" required={true} defaultValue={c.identificationType}
-												className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
-										</label>
-										<label className='text-gray-500' htmlFor="identification"> Identificación
-											<input name="identification" type="text" required={true} defaultValue={c.identification}
-												className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
-										</label>
-									</div>
-									<div className="flex flex-col gap-5 rounded-md md:grid md:grid-cols-2">
-										<label className='text-gray-500' htmlFor="nEmployees"> # de empleados
-											<input name="nEmployees" type="text" required={true} defaultValue={c.nEmployees}
-												className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
-										</label>
-										<label className='text-gray-500'>
-											<button className='invisible p-2 mb-4 font-bold text-black rounded-lg shadow-md md:visible bg-white-400 hover:bg-gray-200'>
-												<i aria-hidden={true} className="text-2xl text-blue-500 align-middle fas fa-paperclip"></i> Ver archivos adjuntos
-											</button>
-										</label>
-										</div>
-									<div className="flex flex-col items-center justify-center py-2 md:hidden ">
-										<button className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
-											<i aria-hidden={true} className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Aprobar Empresa
-										</button>
-										<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
-											<i aria-hidden={true} className="text-2xl text-red-500 align-middle fas fa-times-circle"></i> Rechazar Empresa
-										</button>
-									</div>
-
-								</form>
+								<Form empresa={c}/>
 							</div>
 							)
 						}
 					)
-				};
+				}
 			</main>
 		</div>
 	)
 }
 
+const Form = (empresa)=>{
+
+	const [aprobarEmpresa, { data: mutationData, loading: mutationLoading, error: mutationError }] =
+		useMutation(APROBAR_EMPRESA);
+
+	const forma = useRef(null);
+
+	const aprobar = (id) => {
+		console.log("Se ingreso a aprobar empresa");
+		aprobarEmpresa({
+			variables: {
+				"data":
+				{
+					"state": "Aprobado"
+				},
+				"where": {
+					"id": id
+				}
+			},
+		});
+	}
+
+	const rechazar = (id) => {
+		console.log("Se ingreso a rechazar empresa");
+		aprobarEmpresa({
+			variables: {
+				"data":
+				{
+					"state": "Rechazado"
+				},
+				"where": {
+					"id": id
+				}
+			},
+		});
+	}
+
+	const envinf = async (e) => {
+		e.preventDefault();
+	}
+
+	useEffect(() => {
+		if (mutationData) {
+			toast.success('Empresa aprobada correctamente');
+		}
+	}, [mutationData]);
+
+	useEffect(() => {
+		if (mutationError) {
+			toast.error('Error aprobando la empresa');
+		}
+	}, [mutationError]);
+
+
+		const myLoader = ({ src, width, quality }) => {
+		return `https://drive.google.com/file/d/${src}?w=${width}&q=${quality || 75}`
+	}
+
+	console.log("Datos empresa", empresa)
+	return (
+		<form
+			ref={forma}
+			onSubmit={envinf}
+		className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
+			<div className="grid grid-cols-3 gap-5 text-center rounded-md">
+				<div></div>
+				<div>
+					<Image
+						loader={myLoader}
+						//src="1r6BWC_PPDzNlF_mDDSMGZNsv5MBDtbw3"
+						src={empresa.empresa.logo}
+						alt={empresa.empresa.name}
+						width={150}
+						height={150}
+					/>
+				</div>
+				<div className="flex flex-col invisible py-2 md:visible">
+					<button onClick={() => aprobar(empresa.empresa.id)} className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+						<i aria-hidden={true} className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Aprobar Empresa
+					</button>
+					<button onClick={() => rechazar(empresa.empresa.id)} type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+						<i aria-hidden={true} className="text-2xl text-red-500 align-middle fas fa-times-circle"></i> Rechazar Empresa
+					</button>
+				</div>
+			</div>
+			<div className="flex flex-col gap-5 rounded-md md:grid md:grid-cols-2">
+				<label className='text-gray-500' htmlFor="name"> Nombre de la empresa
+					<input name="name" type="text" required={true} defaultValue={empresa.empresa.name}
+						className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
+				</label>
+				<label className='text-gray-500' htmlFor="businessName"> Razón Social
+					<input name="businessName" type="text" required={true} defaultValue={empresa.empresa.businessName}
+						className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
+				</label>
+			</div>
+			<div className="flex flex-col gap-5 rounded-md md:grid md:grid-cols-2">
+				<label className='text-gray-500' htmlFor="identificationType"> Tipo de identificación
+					<input name="identificationType" type="text" required={true} defaultValue={empresa.empresa.identificationType}
+						className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
+				</label>
+				<label className='text-gray-500' htmlFor="identification"> Identificación
+					<input name="identification" type="text" required={true} defaultValue={empresa.empresa.identification}
+						className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
+				</label>
+			</div>
+			<div className="flex flex-col gap-5 rounded-md md:grid md:grid-cols-2">
+				<label className='text-gray-500' htmlFor="nEmployees"> # de empleados
+					<input name="nEmployees" type="text" required={true} defaultValue={empresa.empresa.nEmployees}
+						className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
+				</label>
+				<label className='text-gray-500'>
+					<button className='invisible p-2 mb-4 font-bold text-black rounded-lg shadow-md md:visible bg-white-400 hover:bg-gray-200'>
+						<i aria-hidden={true} className="text-2xl text-blue-500 align-middle fas fa-paperclip"></i> Ver archivos adjuntos
+					</button>
+				</label>
+			</div>
+			<div className="flex flex-col items-center justify-center py-2 md:hidden ">
+				<button className='col-span-2 p-2 mb-4 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+					<i aria-hidden={true} className="text-2xl text-green-500 align-middle fas fa-check-circle"></i> Aprobar Empresa
+				</button>
+				<button type='submit' className='col-span-2 p-2 font-bold text-black rounded-lg shadow-md bg-white-400 hover:bg-gray-200'>
+					<i aria-hidden={true} className="text-2xl text-red-500 align-middle fas fa-times-circle"></i> Rechazar Empresa
+				</button>
+			</div>
+		</form>
+	)
+}
 export default Company;
