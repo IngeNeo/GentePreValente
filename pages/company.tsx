@@ -125,7 +125,7 @@ const Form = (empresa)=>{
 	};
 
 	const myLoader = ({ src, width, quality }) => {
-		return `https://drive.google.com/file/d/${src}?w=${width}&q=${quality || 75}`
+		return `https://drive.google.com/file/d/${src}/view?usp=sharing?w=${width}&q=${quality || 75}`
 	}
 
 	console.log("Datos empresa", empresa)
