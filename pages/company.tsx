@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header'
 import Image from 'next/image'
 import Head from 'next/head'
@@ -12,11 +12,13 @@ import ReactLoading from 'react-loading';
 import Link from 'next/link';
 import { useRef } from 'react';
 
-//const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export async function getServerSideProps() {
-	/* const empresa = await prisma.empresa.findMany();*/
-	const compa = [{
+	const empresa = await prisma.company.findMany();
+
+	//Solo para pruebas locales
+	/* const empresa = [{
 		id: "ckwv5zqqk0000iw5f47d35mzx",
 		name: "PREVALENTWARE",
 		businessName: "PREVALENTWARE S.A.S",
@@ -25,26 +27,27 @@ export async function getServerSideProps() {
 		nEmployees: 10,
 		logo: '1r6BWC_PPDzNlF_mDDSMGZNsv5MBDtbw3',
 		state: "Pendiente"
-	}];
+	}]; */
 	return {
-		props: { empresa: compa },
+		props: { empresa: empresa },
 	};
 }
 
 const Company = ({ empresa }) => {
 
-	/* const { loading, error, data} = useQuery(GET_COMPANYS);
+	//Query Graphql para obtener las empresas del sistemas en supebase PostgresSQL
+	const { loading, error, data} = useQuery(GET_COMPANYS);
 
 	if(loading){
 		return (
 						<div className='flex flex-col items-center justify-center w-full h-full'>
-							<ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />;
+							<ReactLoading type="spinningBubbles" color="#0040FF" height={667} width={375} />
 						</div>)
 	}
 	if(error){
 		return "Error";
 	}
-	console.log('Esta es la info de data', data); */
+	console.log('Esta es la info de data', data);
 
 	console.log('Esta es la variable en el front', empresa);
 	return (
@@ -65,6 +68,17 @@ const Company = ({ empresa }) => {
 						return (
 							<div key={c.id} className="flex flex-col items-center min-h-screen px-4 py-2 sm:px-6 lg:px-8">
 								<Form empresa={c}/>
+								<div className='grid grid-cols-3 gap-1 justify-center items-center'>
+									<div className='py-10 flex flex-col items-end'>
+										<i className="text-2xl fas fa-arrow-circle-left text-gray-400"></i>
+									</div>
+									<div className=''>
+										<p className='text-gray-600'>Empresa 1 de 2 pendiente por aprobación</p>
+									</div>
+									<div className=''>
+										<i className="text-2xl fas fa-arrow-circle-right ite"></i>
+									</div>
+								</div>
 							</div>
 							)
 						}
@@ -82,6 +96,7 @@ const Form = (empresa)=>{
 	}
 
 	const [aprobarEmpresa, { data, loading, error }] = useMutation(APROBAR_EMPRESA);
+	const [estado, SetEstado] = useState(false);
 
 	useEffect(() => {
 		if (data) {
@@ -95,6 +110,7 @@ const Form = (empresa)=>{
 		}
 	}, [error]);
 
+	//TODO:Problemas con la mutación de cambio de estar la BD rechaza la solicitud
 	const cambiarEstadoEmpresa= () => {
 		aprobarEmpresa({
 			variables: {
@@ -114,9 +130,13 @@ const Form = (empresa)=>{
 
 	console.log("Datos empresa", empresa)
 	return (
+		<div>
+			{estado ? <Modal state={estado} />: <></> }
+
 		<form onSubmit={submitForm} className="p-5 mt-8 space-y-6 bg-white rounded-lg shadow-lg">
 			<div className="grid grid-cols-3 gap-5 text-center rounded-md">
-				<div></div>
+				<div>
+				</div>
 				<div>
 					<Image
 						loader={myLoader}
@@ -164,7 +184,10 @@ const Form = (empresa)=>{
 						className="relative block w-full px-3 py-2 font-bold text-black appearance-none focus:outline-none sm:text-sm" />
 				</label>
 				<label className='text-gray-500'>
-					<button className='invisible p-2 mb-4 font-bold text-black rounded-lg shadow-md md:visible bg-white-400 hover:bg-gray-200'>
+					<button onClick={() => {
+						SetEstado(true);
+					}}
+					className='invisible p-2 mb-4 font-bold text-black rounded-lg shadow-md md:visible bg-white-400 hover:bg-gray-200'>
 						<i aria-hidden={true} className="text-2xl text-blue-500 align-middle fas fa-paperclip"></i> Ver archivos adjuntos
 					</button>
 				</label>
@@ -178,6 +201,43 @@ const Form = (empresa)=>{
 				</button>
 			</div>
 		</form>
+		</div>
 	)
 }
+
+const Modal=(state)=>{
+
+	const [mostrar, SetMostrar] = useState(false);
+
+	useEffect(() => {
+		if (state === true) {
+			console.log("entro al si de estado true");
+			SetMostrar(true);
+		}
+		else if (state === false) {
+			console.log("entro al sino de estado false");
+			SetMostrar(false);
+		}
+		else {
+			console.log("entro al no de estado true");
+			SetMostrar(false);
+		}
+	}, [state]);
+
+
+	return(
+		<div>
+			<div className={`${mostrar} modal flex - flex-col justify-center items-center text-center font-bold overflow-y-auto`} >
+				<button onClick={() => { state = false }}
+					className='invisible p-2 mb-4 font-bold text-black rounded-lg shadow-md md:visible bg-white-400 hover:bg-gray-200'>
+					<i aria-hidden={true} className='fas fa-times-circle'></i>
+				</button>
+					<div>
+					<i className="text-2xl text-red-500 fas fa-file-pdf"></i>
+					</div>
+			</div>
+		</div>
+	)
+}
+
 export default Company;
